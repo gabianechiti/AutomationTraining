@@ -5,6 +5,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.testng.annotations.Test;
+import training.pages.HomePage;
 
 import java.io.File;
 import java.time.Duration;
@@ -19,20 +20,22 @@ public class PracticeFormTest<WebDriverWait> {
     @Test
     public void navigateFromHomePageToPracticeForm() {
         openBrowser();
-        clickOnFormMenu();
-        clickOnPracticeFormSubmenu();
-        scrollDown();
-        fillFirstName();
-        fillLastName();
-        fillEmail();
-        fillPhoneNumber();
-        fillGender("Male");
-        selectSubject();
-        scrollDown();
-        clickOnSubmitButton();
-        filldateOfBirth();
-        selectStateNcr();
-        addthePicture();
+        HomePage homePage = new HomePage(driver);
+        homePage.goToDesiredMenu("Forms");
+        homePage.isPageLoaded();
+//        clickOnPracticeFormMenu();
+//        scrollDown();
+//        fillFirstName();
+//        fillLastName();
+//        fillEmail();
+//        fillPhoneNumber();
+//        fillGender("Male");
+//        selectSubject();
+//        scrollDown();
+//        clickOnSubmitButton();
+//        filldateOfBirth();
+//        selectStateNcr();
+//        addthePicture();
     }
 
     //facem o motoda care sa deschisa browserul Chrome
