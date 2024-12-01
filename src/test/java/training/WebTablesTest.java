@@ -131,14 +131,14 @@ public class WebTablesTest {
         Assert.assertEquals(actualTableSize, expectedTableSize, "Actual table size : " + actualTableSize + " is different than expected table size: " + expectedTableSize);
         System.out.println("Actual table size is: " + actualTableSize + " and expected table size is: " + expectedTableSize);
     }
-    //public void scrollDown(){
-    //JavascriptExecutor js= (JavascriptExecutor) driver;
-    //js.executeScript("window.scrollBy(0,250)");
-    //}
-    //public void waitForElements(){
-    //WebElement wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-    //wait.until(ExpectedConditions.visibilityOf(webElement));
-
-    //}
+//    public void scrollDown(){
+//    JavascriptExecutor js= (JavascriptExecutor) driver;
+//    js.executeScript("window.scrollBy(0,250)");
+//    }
+//    public void waitForElements(){
+//    WebElement wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+//    wait.until(ExpectedConditions.visibilityOf(webElement));
+//
+//    }
 
 }

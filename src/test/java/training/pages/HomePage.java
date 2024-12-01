@@ -1,61 +1,58 @@
 package training.pages;
 
-import dev.failsafe.internal.util.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.FluentWait;
+import org.testng.Assert;
 
-import java.time.Duration;
 import java.util.List;
 
-public class HomePage extends BasePage {
+public class HomePage extends BasePage{
 
-    //identificam web elementele spesifice paginii
-
-    @FindBy(xpath = "//h5[text()='Fonts']")
-    private List<WebElement> webElementList;
-    @FindBy(xpath= )
+    //identificam webelementele specifice paginii
+    @FindBy(xpath = "//h5")
+    private List<WebElement> menuListElements;
+    @FindBy(xpath = "//img[@class='banner-image']")
     private WebElement pageTitle;
 
-
-    //un constructor care preia constructorul din clasa mostenita BasePage
-
+    //un constructur care preia din clasa BasePage
     public HomePage(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver, this);
     }
 
 
-    //implementare proprie pentru Homepage a metodei abstracte din BasePage
 
+    //implementare proprie pentru homepage a metodei abstarcte din BasePage
     @Override
     public void isPageLoaded() {
-        Assert.assertTrue(pageTitle.getAttribute("alt").equals("Selenium Online Training"), "Page is Not Loaded Correctly")
+        Assert.assertTrue(pageTitle.getAttribute("alt").equals("Selenium Online Training"),"Page is not loaded correctly");
     }
     //facem metode specifice pentru pagina
 
-    //facem o metoda care sa faca click pe meniul Fonts
-
-//    public void clickOnFormMenu() {
+    //Facem o metoda care sa sa faca click meniul Forms
+//    public void clickOnFormMenu(){
 //        scrollDown();
-//        WebElement formMenuElement = driver.findElement(By.xpath("//h5[text()='Fonts']"));
-//        formMenuElement.click();
+//        formsMenuElement.click();
+//    }
+    //facem o metoda care sa faca click pe un meniu ales de noi
 
-    //facem o metoda care sa faca click pe un menu ales de noi
-    public void goToDesiredMenu(String menuName){
+    public void goToDesireMenu (String menuName){
         scrollDown();
-    for(WebElement element: webElementList){
-        if (element.getText().equals(menuName)){
-            element.click();
-            break;
+        for (WebElement element: menuListElements){
+            if (element.getText().equals(menuName)){
+                element.click();
+                break;
+            }
         }
     }
 
-
-
+    //Facem o metoda cae sa faca scroll in jos pe pagina
+    public void scrollDown() {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,400)");
     }
 }
