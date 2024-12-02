@@ -15,7 +15,7 @@ public class PracticeFormTest {
     public WebDriver driver;
 
     @Test
-    public void navigateFromHomePageToPracticeFormPage(){
+    public void navigateFromHomePageToPracticeFormPage() {
         openBrowser();
         HomePage homePage = new HomePage(driver);
         homePage.isPageLoaded();
@@ -40,7 +40,7 @@ public class PracticeFormTest {
     }
 
     //Facem o metoda care sa deschida browser-ul Chrome
-    public void openBrowser(){
+    public void openBrowser() {
         driver = new ChromeDriver();
         driver.get("https://demoqa.com/");
         driver.manage().window().maximize();
@@ -60,31 +60,31 @@ public class PracticeFormTest {
     }
 
     //Facem o metoda care sa faca click pe submeniul practice form
-    public void clickOnPracticeFormSubmenu(){
+    public void clickOnPracticeFormSubmenu() {
         WebElement practiceFormSubmenuElement = driver.findElement(By.xpath("//span[text()='Practice Form']"));
         practiceFormSubmenuElement.click();
     }
 
     //Facem o metoda sa completam campul de Name
-    public void fillFirstName(){
+    public void fillFirstName() {
         WebElement firstNameFieldElement = driver.findElement(By.id("firstName"));
         firstNameFieldElement.sendKeys("Bogdan");
     }
 
     //Facem o metoda care sa completeze campul Last Name
-    public void fillLastName(){
+    public void fillLastName() {
         WebElement lastNameFieldElement = driver.findElement(By.id("lastName"));
         lastNameFieldElement.sendKeys("Popescu");
     }
 
     //Facem o metoda care sa completeze campul e-mail
-    public void fillMail(){
+    public void fillMail() {
         WebElement mailFieldElement = driver.findElement(By.xpath("//input[@id='userEmail']"));
         mailFieldElement.sendKeys("Bogdan.Popescu@yahoo.com");
     }
 
     //Facem o metoda care sa selecteze genul
-    public void fillGender(String gender){
+    public void fillGender(String gender) {
         WebElement maleGenderCheckboxElement = driver.findElement(By.xpath("//label[@for='gender-radio-1']"));
         WebElement femaleGenderCheckboxElement = driver.findElement(By.xpath("//label[@for='gender-radio-2']"));
         WebElement otherGenderCheckboxElement = driver.findElement(By.xpath("//label[@for='gender-radio-3']"));
@@ -92,38 +92,42 @@ public class PracticeFormTest {
         genderListsElements.add(maleGenderCheckboxElement);
         genderListsElements.add(femaleGenderCheckboxElement);
         genderListsElements.add(otherGenderCheckboxElement);
-        for (int i = 0; i<genderListsElements.size(); i++){
-            if (genderListsElements.get(i).getText().equals(gender)){
+        for (int i = 0; i < genderListsElements.size(); i++) {
+            if (genderListsElements.get(i).getText().equals(gender)) {
                 genderListsElements.get(i).click();
             }
         }
 
     }
+
     //Facem o metoda care sa completeze campul Phone Number
-    public void fillPhoneNumber(){
+    public void fillPhoneNumber() {
         WebElement phoneNumberElement = driver.findElement(By.xpath("//input[@id='userNumber']"));
         phoneNumberElement.sendKeys("0799544406");
     }
+
     //Facem o metoda care sa completeze campul data nasterii
-    public void fillDateOfBirth(){
+    public void fillDateOfBirth() {
         WebElement dateOfBirthElement = driver.findElement(By.xpath("//input[@id='dateOfBirthInput']"));
         dateOfBirthElement.sendKeys("20 Dec 1997");
         WebElement defaultElement = driver.findElement(By.xpath("//input[@id='dateOfBirthInput']"));
         defaultElement.sendKeys(Keys.HOME);
-        for (int index = 1; index <= 11; index++){
+        for (int index = 1; index <= 11; index++) {
             defaultElement.sendKeys(Keys.DELETE);
         }
         dateOfBirthElement.sendKeys(Keys.ENTER);
     }
+
     //Facem o metoda care sa completeze campul Subjects
-    public void selectSubject(){
+    public void selectSubject() {
         WebElement selectSubjectImput = driver.findElement(By.id("subjectsInput"));
         selectSubjectImput.sendKeys("Accounting");
         selectSubjectImput.sendKeys(Keys.ENTER);
 
     }
+
     //Facem o metoda care sa completeze campurile de la Hobbies
-    public void fillHobbies(String hobbies){
+    public void fillHobbies(String hobbies) {
         WebElement sportsHobbiesCheckboxElement = driver.findElement(By.xpath("//label[@for='hobbies-checkbox-1']"));
         WebElement readingHobbiesCheckboxElement = driver.findElement(By.xpath("//label[@for='hobbies-checkbox-2']"));
         WebElement musicHobbiesCheckboxElement = driver.findElement(By.xpath("//label[@for='hobbies-checkbox-3']"));
@@ -131,43 +135,48 @@ public class PracticeFormTest {
         hobbiesListsElements.add(sportsHobbiesCheckboxElement);
         hobbiesListsElements.add(readingHobbiesCheckboxElement);
         hobbiesListsElements.add(musicHobbiesCheckboxElement);
-        for (int i = 0; i<hobbiesListsElements.size(); i++){
-            if (hobbiesListsElements.get(i).getText().equals(hobbies)){
+        for (int i = 0; i < hobbiesListsElements.size(); i++) {
+            if (hobbiesListsElements.get(i).getText().equals(hobbies)) {
                 hobbiesListsElements.get(i).click();
             }
         }
     }
+
     //Facem o metoda care sa completeze campul choose a file
-    public void addThePictures(){
+    public void addThePictures() {
         String pictureFilePath = "src/test/resources/A.java";
         File file = new File(pictureFilePath);
         WebElement inputPictureElements = driver.findElement(By.cssSelector("#uploadPicture"));
         inputPictureElements.sendKeys(file.getAbsolutePath());
     }
+
     //Facem o metoda care sa completeze campul Current Adress
-    public void fillCurrentAddress(){
+    public void fillCurrentAddress() {
         WebElement currentAddressElements = driver.findElement(By.id("currentAddress"));
         currentAddressElements.sendKeys("Str.Jepilor, Nr.10");
     }
+
     //Vom da scroll down in continuare
     //Facem o metoda sa selecteze Statul
-    public void fillTheState (){
+    public void fillTheState() {
         WebElement theStateElements = driver.findElement(By.id("react-select-3-input"));
         theStateElements.sendKeys("NCR");
         theStateElements.sendKeys(Keys.ENTER);
     }
+
     //Facem o metoda sa selecteze Orasul
-    public void fillTheCity (){
+    public void fillTheCity() {
         WebElement theCityElements = driver.findElement(By.id("react-select-4-input"));
         theCityElements.sendKeys("Delhi");
         theCityElements.sendKeys(Keys.ENTER);
     }
+
     //Facem click pe submit
-    public void clickOnSubmitButton(){
+    public void clickOnSubmitButton() {
         WebElement submitButton = driver.findElement(By.xpath("//button[@id='submit']"));
         submitButton.click();
     }
-
+}
 // De validat tabelul cu valori
 
 
