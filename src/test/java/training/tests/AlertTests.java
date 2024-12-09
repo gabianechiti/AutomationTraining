@@ -1,4 +1,4 @@
-package training;
+package training.tests;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
