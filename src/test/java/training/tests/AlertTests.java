@@ -5,77 +5,90 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
+import training.pages.AlertsPage;
+import training.pages.HomePage;
 
 import java.time.Duration;
 
-public class AlertTests {
-    WebDriver driver;
+public class AlertsTest extends BaseTest{
+    //public WebDriver driver;
+
     @Test
-    public void alertsTests(){
-        openBrowser();
-        clickOnAlertsFrameWindowMenu();
-        openAlertsTables();
-        clickOnFirstAlert();
-        interactivWithAlertOk();
-        clickOnSecondAlert();
-        interactivWithAlertOkFiveSec();
-        clickOnTheThirdAlert();
-        interactivWithConfirmAlert();
-        clickOnTheFourthAlert();
-        interactivWithPastAlert();
+    public void testAlertsFrameWindows(){
+        homePage.isPageLoaded();
+        homePage.selectMenu("Alerts, Frame & Windows");
+        commonPage.isPageLoaded();
+        commonPage.selectSubMenu("Alerts");
+        AlertsPage alertsPage = new AlertsPage(driver);
+        alertsPage.isPageLoaded();
+        alertsPage.interactWithAllAlerts();
+//        alertsPage.clickFirstAlertButton();
+//        alertsPage.interactWithWaitingAlert();
+//        alertsPage.clickThirdButton();
+//        alertsPage.clickFourthButton();
+
+        //Prima versiune fara page object model;
+//        openBrowser();
+//        clickOnAlertsFrameWindows();
+//        clickOnAlertsMenu();
+//        clickFirstAlertButton();
+//        clickSecondAlertButton();
+//        waitForSecondAlert();
+//        secondAlert();
+//        clickThirdButton();
+//        clickFourthButton();
     }
 
-    public void openBrowser() {
-        driver = new ChromeDriver();
-        driver.get("https://demoqa.com/");
-        driver.manage().window().setSize(new Dimension(1980, 1080));
-    }
-    public void clickOnAlertsFrameWindowMenu() {
-        WebElement alertsFrameWindowsMenuElement = driver.findElement(By.xpath("//h5[text()='Alerts, Frame & Windows']"));
-        alertsFrameWindowsMenuElement.click();
-    }
-    public void openAlertsTables() {
-        WebElement webAlertsElements = driver.findElement(By.xpath("//span[text()='Browser Windows']   "));
-        webAlertsElements.click();
-    }
-    public void clickOnFirstAlert(){
-        WebElement firstAlertElement = driver.findElement(By.xpath("//button[@id='alertButton']"));
-        firstAlertElement.click();
-    }
-    public void interactivWithAlertOk(){
-        Alert alertOk = driver.switchTo().alert();
-        alertOk.accept();
-    }
-    public void clickOnSecondAlert(){
-        WebElement secondAlertElement = driver.findElement(By.xpath("//button[@id='timerAlertButton']"));
-        secondAlertElement.click();
-    }
-    public void interactivWithAlertOkFiveSec(){
-        waitForAlert();
-        Alert timerOk = driver.switchTo().alert();
-        timerOk.accept();
-    }
-    public void waitForAlert(){
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.alertIsPresent());
-    }
-    public void clickOnTheThirdAlert(){
-        WebElement thirdAlertElement = driver.findElement(By.xpath("//button[@id='confirmButton']"));
-        thirdAlertElement.click();
-    }
-    public void interactivWithConfirmAlert(){
-        Alert confirmAlert = driver.switchTo().alert();
-        confirmAlert.dismiss();
-    }
-    public void clickOnTheFourthAlert(){
-        WebElement fourthAlertElement = driver.findElement(By.xpath("//button[@id='promtButton']"));
-        fourthAlertElement.click();
-    }
-    public void interactivWithPastAlert(){
-        Alert confirmPastAlert = driver.switchTo().alert();
-        //driver.switchTo().
-        confirmPastAlert.sendKeys("Edy");
-        confirmPastAlert.accept();
-    }
+//    public void openBrowser() {
+//        driver = new ChromeDriver();
+//        driver.get("https://demoqa.com/");
+//        driver.manage().window().maximize();
+//    }
 
+//    public void clickOnAlertsFrameWindows() {
+//        WebElement alertsFrameWindowsElement = driver.findElement(By.xpath("//h5[text()=\"Alerts, Frame & Windows\"]"));
+//        alertsFrameWindowsElement.click();
+//    }
+//
+//    public void clickOnAlertsMenu() {
+//        WebElement alertsMenu = driver.findElement(By.xpath("//span[text()=\"Alerts\"]"));
+//        alertsMenu.click();
+//    }
+
+//    public void clickFirstAlertButton(){
+//        WebElement firstAlert = driver.findElement(By.id("alertButton"));
+//        firstAlert.click();
+//        Alert clickOk = driver.switchTo().alert();
+//        clickOk.accept();
+//    }
+
+//    public void clickSecondAlertButton(){
+//        WebElement secondAlert = driver.findElement(By.id("timerAlertButton"));
+//        secondAlert.click();
+//    }
+//
+//    public void waitForSecondAlert(){
+//        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+//        wait.until(ExpectedConditions.alertIsPresent());
+//    }
+//
+//    public void secondAlert(){
+//        Alert clickOk = driver.switchTo().alert();
+//        clickOk.accept();
+//    }
+
+//    public void clickThirdButton(){
+//        WebElement thirdButton = driver.findElement(By.id("confirmButton"));
+//        thirdButton.click();
+//        Alert clickOk = driver.switchTo().alert();
+//        clickOk.dismiss();
+//    }
+//
+//    public void clickFourthButton(){
+//        WebElement fourthButton = driver.findElement(By.id("//button[@id='promtButton']"));
+//        fourthButton.click();
+//        fourthButton.sendKeys("Emanuel");
+//        Alert clickOk = driver.switchTo().alert();
+//        clickOk.accept();
+//    }
 }
