@@ -6,28 +6,24 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 import training.pages.AlertsPage;
-import training.pages.HomePage;
 
 import java.time.Duration;
 
+import static training.constants.MenuKeys.ALERTS_FRAMES_WINDOWS_MENU;
+import static training.constants.SubMenuKeys.ALERTS_SUBMENU;
+
 public class AlertsTest extends BaseTest{
-    //public WebDriver driver;
+//    public WebDriver driver;
 
     @Test
     public void testAlertsFrameWindows(){
         homePage.isPageLoaded();
-        homePage.selectMenu("Alerts, Frame & Windows");
+        homePage.selectMenu(ALERTS_FRAMES_WINDOWS_MENU);
         commonPage.isPageLoaded();
-        commonPage.selectSubMenu("Alerts");
+        commonPage.selectSubMenu(ALERTS_SUBMENU);
         AlertsPage alertsPage = new AlertsPage(driver);
         alertsPage.isPageLoaded();
         alertsPage.interactWithAllAlerts();
-//        alertsPage.clickFirstAlertButton();
-//        alertsPage.interactWithWaitingAlert();
-//        alertsPage.clickThirdButton();
-//        alertsPage.clickFourthButton();
-
-        //Prima versiune fara page object model;
 //        openBrowser();
 //        clickOnAlertsFrameWindows();
 //        clickOnAlertsMenu();
@@ -38,7 +34,11 @@ public class AlertsTest extends BaseTest{
 //        clickThirdButton();
 //        clickFourthButton();
     }
-
+//    public void scrollDown() {
+//       JavascriptExecutor js = (JavascriptExecutor) driver;
+//        js.executeScript("window.scrollBy(0,160)");
+//    }
+//
 //    public void openBrowser() {
 //        driver = new ChromeDriver();
 //        driver.get("https://demoqa.com/");

@@ -3,8 +3,6 @@ package training;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -12,11 +10,9 @@ import org.testng.annotations.Test;
 //int initialTableSize = 0;
 
 
-import javax.swing.*;
-import java.time.Duration;
 import java.util.List;
 
-public class WebTablesTest {
+public class WebTableTest {
     int initialTableSize = 0;
 
     public WebDriver driver;
